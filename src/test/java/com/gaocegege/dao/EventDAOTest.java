@@ -16,8 +16,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.gaocegege.HibernateSpatialExampleApplication;
 import com.gaocegege.domain.Event;
 import com.jayway.restassured.RestAssured;
+import com.vividsolutions.jts.geom.CoordinateSequence;
+import com.vividsolutions.jts.geom.CoordinateSequenceFactory;
 import com.vividsolutions.jts.geom.Geometry;
+import com.vividsolutions.jts.geom.GeometryFactory;
+import com.vividsolutions.jts.geom.MultiPoint;
 import com.vividsolutions.jts.geom.Point;
+import com.vividsolutions.jts.geom.impl.CoordinateArraySequenceFactory;
 import com.vividsolutions.jts.io.ParseException;
 import com.vividsolutions.jts.io.WKTReader;
 
@@ -65,4 +70,9 @@ public class EventDAOTest {
         Event result = eventDAO.findByLocation(location);
         Assert.assertNotNull(result);
     }
+
+	private MultiPoint buildMultiPoint(Point point) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

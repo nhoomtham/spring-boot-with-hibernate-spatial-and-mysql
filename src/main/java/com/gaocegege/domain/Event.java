@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
+import com.vividsolutions.jts.geom.MultiPoint;
 import com.vividsolutions.jts.geom.Point;
 
 /**
@@ -33,6 +34,11 @@ public class Event {
     @Type(type = "org.hibernate.spatial.GeometryType")
     private Point location;
 
+    @Column(name = "plan")
+    @NotNull
+    @Type(type = "org.hibernate.spatial.GeometryType")
+    private MultiPoint plan;
+    
     public int getId() {
         return id;
     }
@@ -48,4 +54,12 @@ public class Event {
     public void setLocation(Point location) {
         this.location = location;
     }
+    
+    public MultiPoint getPlan() {
+		return plan;
+	}
+    
+    public void setPlan(MultiPoint plan) {
+		this.plan = plan;
+	}
 }
